@@ -21,15 +21,14 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
       "TO_IOS_ACCESS_KEY":"your TestObject iOS API Key",
       "DESKTOP_HOMEPAGE_URL":"your desktop homepage url",
       "MOBILE_WEB_HOMEPAGE_URL":"your mobile web homepage url"
-    	}
+    }
     ```
     * Add the browsers you want to test under browsersCfg.json: 
      ```
      [
         ["browser","version","environment","platform"] ,
         ["browser","version","environment","platform"] ,
-        ["browser","version","environment","platform"]
-          
+        ["browser","version","environment","platform"]    
      ]
      ```
      
@@ -43,7 +42,7 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
           ["Safari", "9.3", "iPad 2 Simulator", "DesktopWeb"],
           ["TestObject - Safari", "10.0", "iPhone_6_Plus_real_us", "iOS"],
           ["TestObject - Chrome", "7.0", "Samsung_Galaxy_S7_real", "Android"]
-      ]
+     ]
       ```
      
      * Add the devices you want to test under devicesCfg.json: 
@@ -52,8 +51,7 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
       [
           ["device","version","device_full_name","platform"] ,
           ["device","version","device_full_name","platform"] ,
-          ["device","version","device_full_name","platform"] 
-               
+          ["device","version","device_full_name","platform"]          
       ]
       ```
       Below are some examples. Feel free to add additional arrays or (delete some) depending on the number of browsers you want to test.
