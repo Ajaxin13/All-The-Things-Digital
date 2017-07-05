@@ -1,3 +1,5 @@
-This repository gathers sample frameworks that demonstrate Saucelabs and TestObject capabilities of VMs, Emulators/Simulators and Mobile Native and Web Apps using different languages and test frameworks.
+## All-The-Things-Digital
 
-Languages and frameworks will be added progressively.
+This repository gathers sample frameworks that demonstrate Sauce Labs capabilities of VMs, Emulators/Simulators and Mobile Native and Web Apps using different languages and test frameworks.
+
+Frameworks using different languages will be added progressively.
