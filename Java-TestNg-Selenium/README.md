@@ -35,13 +35,13 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
      Below are some examples. Feel free to add additional arrays or (delete some) depending on the number of browsers you want to test.
      ```
      [
-          ["firefox","49.0","Windows 10","DesktopWeb"],
-          ["safari","latest","OS X 10.11","DesktopWeb"],
-          ["chrome", "6.0", "Android Emulator", "Android"],
-          ["Safari", "10.3", "iPhone 6 Simulator", "iOS"],
-          ["Safari", "9.3", "iPad 2 Simulator", "DesktopWeb"],
-          ["TestObject - Safari", "10.0", "iPhone_6_Plus_real_us", "iOS"],
-          ["TestObject - Chrome", "7.0", "Samsung_Galaxy_S7_real", "Android"]
+       ["firefox","49.0","Windows 10","DesktopWeb"],
+       ["safari","latest","OS X 10.11","DesktopWeb"],
+       ["chrome", "6.0", "Android Emulator", "Android"],
+       ["Safari", "10.3", "iPhone 6 Simulator", "iOS"],
+       ["Safari", "9.3", "iPad 2 Simulator", "DesktopWeb"],
+       ["TestObject - Chrome", "7.0", "Samsung Galaxy S7", "Android"],
+       ["TestObject - Chrome", "6.0", "iPhone 5", "iOS"]
      ]
       ```
      
@@ -49,19 +49,19 @@ This code is provided on an "AS-IS” basis without warranty of any kind, either
      
       ```
       [
-          ["device","version","device_full_name","platform"] ,
-          ["device","version","device_full_name","platform"] ,
-          ["device","version","device_full_name","platform"]          
+          ["device","version","device_name","platform"] ,
+          ["device","version","device_name","platform"] ,
+          ["device","version","device_name","platform"]          
       ]
       ```
       Below are some examples. Feel free to add additional arrays or (delete some) depending on the number of browsers you want to test.
       ```
       [
-      ["TestObject - Google Pixel", "7.0", "Google_Pixel_real", "MobileNative - Android"],
-      ["TestObject - iPad 3", "9.3", "iPad_3_16GB_real_2", "MobileNative - iOS"],
-      ["", "6.0", "Android Emulator", "MobileNative - Android"],
-      ["", "10.3", "iPhone 6 Simulator", "MobileNative - iOS"],
-      ["", "9.3", "iPad 2 Simulator", "MobileNative - iOS"]
+        ["TestObject - Galaxy S7", "6.0", "Samsung Galaxy S7", "MobileNative - Android"],
+        ["TestObject - iPhone 5", "9.3", "iPhone 5", "MobileNative - iOS"],
+        ["", "6.0", "Android Emulator", "MobileNative - Android"],
+        ["", "10.3", "iPhone 6 Simulator", "MobileNative - iOS"],
+        ["", "9.3", "iPad 2 Simulator", "MobileNative - iOS"]
       ]
       ```
           

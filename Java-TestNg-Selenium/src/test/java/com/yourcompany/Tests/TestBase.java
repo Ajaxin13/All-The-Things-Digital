@@ -169,14 +169,15 @@ public class TestBase  {
     public void tearDown(ITestResult result) throws Exception {
         WebDriver driver = getWebDriver();
         Boolean status = result.isSuccess();
+        if (driver != null) {
+            if (TOUtils.isTO(driver)) {
+                TOUtils.updateResults(getSessionId(), status);
+            } else {
+                SauceUtils.updateResults(driver, status);
+            }
 
-        if (TOUtils.isTO(driver)) {
-            TOUtils.updateResults(getSessionId(), status);
-        } else {
-            SauceUtils.updateResults(driver, status);
+            driver.quit();
         }
-
-        driver.quit();
     }
 
     protected void annotate(String text) {

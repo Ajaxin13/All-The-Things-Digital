@@ -10,25 +10,17 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.util.Collections;
-import java.util.HashMap;
 
 /**
  * Created by neil on 5/27/17.
- ** Edited by Marina on 6/27/17 to allow use of parameters parsed from json file
  */
 public class TOUtils {
-
-    static HashMap<String,String> parameterMap = JsonMapperUtil.getParameterHashMapFromJsonFile("src/test/resources/paramCfg.json");
-
-
-    static String username = parameterMap.get("SAUCE_USERNAME");
-    static String accesskey = parameterMap.get("SAUCE_ACCESS_KEY");
-    static String webAccesskey = parameterMap.get("TO_WEB_ACCESS_KEY");
-    static String iosAccessKey = parameterMap.get("TO_IOS_ACCESS_KEY");
-    static String androidAccessKey = parameterMap.get("TO_ANDROID_ACCESS_KEY");
+    static String webAccesskey = System.getenv("TO_WEB_ACCESS_KEY");
+    static String iosAccessKey = System.getenv("TO_IOS_ACCESS_KEY");
+    static String androidAccessKey = System.getenv("TO_ANDROID_ACCESS_KEY");
 
     public static boolean isTO(WebDriver driver) {
-        return ((RemoteWebDriver) driver).getCapabilities().getCapability("testobject_device") != null;
+        return ((RemoteWebDriver) driver).getCapabilities().getCapability("deviceName") != null;
     }
 
     public static boolean isTO(String browser) {
@@ -39,7 +31,7 @@ public class TOUtils {
         String key = "";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("testobject_device", os);
+        caps.setCapability("deviceName", os);
         if (pageobject.contains("MobileNative")) {
             key = pageobject.contains("Android") ? androidAccessKey : iosAccessKey;
         } else {
@@ -47,11 +39,16 @@ public class TOUtils {
         }
         caps.setCapability("testobject_api_key", key);
         caps.setCapability("testobject_test_name", methodName);
+        caps.setCapability("platformName", pageobject);
 
         caps.setCapability("testobject_appium_version", "1.6.4");
         caps.setCapability("deviceOrientation", "portrait");
 
         caps.setCapability("testobject_cache_device", "true");
+
+
+
+
         return caps;
     }
 
