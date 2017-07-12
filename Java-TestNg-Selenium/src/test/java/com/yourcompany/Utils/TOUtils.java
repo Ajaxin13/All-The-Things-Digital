@@ -10,14 +10,22 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.util.Collections;
+import java.util.HashMap;
 
 /**
  * Created by neil on 5/27/17.
+ ** Edited by Marina on 6/27/17 to allow use of parameters parsed from json file
  */
 public class TOUtils {
-    static String webAccesskey = System.getenv("TO_WEB_ACCESS_KEY");
-    static String iosAccessKey = System.getenv("TO_IOS_ACCESS_KEY");
-    static String androidAccessKey = System.getenv("TO_ANDROID_ACCESS_KEY");
+
+    static HashMap<String,String> parameterMap = JsonMapperUtil.getParameterHashMapFromJsonFile("src/test/resources/paramCfg.json");
+
+
+    static String username = parameterMap.get("SAUCE_USERNAME");
+    static String accesskey = parameterMap.get("SAUCE_ACCESS_KEY");
+    static String webAccesskey = parameterMap.get("TO_WEB_ACCESS_KEY");
+    static String iosAccessKey = parameterMap.get("TO_IOS_ACCESS_KEY");
+    static String androidAccessKey = parameterMap.get("TO_ANDROID_ACCESS_KEY");
 
     public static boolean isTO(WebDriver driver) {
         return ((RemoteWebDriver) driver).getCapabilities().getCapability("deviceName") != null;
