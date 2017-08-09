@@ -1,0 +1,38 @@
+def run_tests_devices(deviceName, platformVersion, testCase, app)
+  system("deviceName=\"#{deviceName}\" platformVersion=\"#{platformVersion}\" testCase=\"#{testCase}\" app=\"#{app}\" parallel_split_test specs/mobile_native_test_spec.rb")
+end
+
+def run_test_browsers(browser, browserVersion, platform, testCase)
+  system("browser=\"#{browser}\" browserVersion=\"#{browserVersion}\" platform=\"#{platform}\" testCase=\"#{testCase}\"  parallel_split_test specs/login_test_spec.rb")
+end
+
+task :Android_Emulator_Phone_5_1 do
+  run_tests_devices('Android Emulator', '5.1', 'SAUCE_NATIVE_ANDROID',  'https://github.com/saucelabs-sample-test-frameworks/Java-Junit-Appium-Android/blob/master/resources/GuineaPigApp-debug.apk?raw=true')
+end
+
+task :Galaxy_S4_Emulator do
+  run_tests_devices('Samsung Galaxy S4 Emulator', '4.4', 'SAUCE_NATIVE_ANDROID',  'https://github.com/saucelabs-sample-test-frameworks/Java-Junit-Appium-Android/blob/master/resources/GuineaPigApp-debug.apk?raw=true')
+end
+
+task :Samsung_Galaxy_S7 do
+  run_tests_devices('Samsung Galaxy S7', '6', 'TESTOBJECT_NATIVE_ANDROID',  '')
+end
+
+task :Firefox do
+  run_test_browsers('firefox', '28', 'Windows 10', 'SAUCE_WEB_DESKTOP')
+end
+
+task :iPhone_5 do
+  run_tests_devices('iPhone 5', '10', 'TESTOBJECT_NATIVE_IOS',  '')
+end
+
+multitask :test_sauce => [
+    :Android_Emulator_Phone_5_1,
+    :Galaxy_S4_Emulator,
+    :Firefox,
+    :Samsung_Galaxy_S7,
+    :iPhone_5
+
+] do
+  puts 'Running automation'
+end
