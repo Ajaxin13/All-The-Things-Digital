@@ -7,8 +7,6 @@ gem 'parallel_split_test'
 gem 'sauce_whisk'
 gem 'rake'
 gem 'selenium-webdriver'
-gem 'httparty'
-gem 'json'
-
+gem 'test_object_test_result_watcher'
 
 

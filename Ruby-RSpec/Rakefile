@@ -15,7 +15,7 @@ task :Galaxy_S4_Emulator do
 end
 
 task :Samsung_Galaxy_S7 do
-  run_tests_devices('Samsung Galaxy S7', '6', 'TESTOBJECT_NATIVE_ANDROID',  '')
+  run_tests_devices('Samsung Galaxy S7', '7', 'TESTOBJECT_NATIVE_ANDROID',  '')
 end
 
 task :Firefox do

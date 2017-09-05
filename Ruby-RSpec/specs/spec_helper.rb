@@ -3,6 +3,7 @@ require 'appium_lib'
 require 'rspec'
 require 'sauce_whisk'
 require 'selenium-webdriver'
+require 'test_object_test_result_watcher'
 require_relative '../utils/utils'
 require_relative '../utils/sauce_utils'
 require_relative '../utils/test_object_utils'
@@ -24,7 +25,6 @@ RSpec.configure do |config|
 
     unless @driver.nil?
       puts "SauceOnDemandSessionID: #{@driver.session_id} \t Job name: #{example.full_description}"
-      Utils.web ? @driver.quit : @driver.driver_quit
       Utils.sauce ? SauceUtils.update_test_result(@driver.session_id, example) : TestObjectUtils.update_test_result(example)
     end
   end

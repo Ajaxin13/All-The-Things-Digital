@@ -36,10 +36,9 @@ class SauceUtils < EnvsHelper
               app: APP,
               deviceOrientation: 'portrait',
               appiumVersion: '1.6.4',
-              browserName: ''
+              browserName: '',
+              testobject_report_results: true
           }
-
-
       }
     end
   end
@@ -50,6 +49,17 @@ class SauceUtils < EnvsHelper
     else
       SauceWhisk::Jobs.pass_job session_id
     end
+
+    begin
+      @driver.quit
+    rescue
+      begin
+        @driver.driver_quit
+      rescue
+        # ignored
+      end
+    end
+
   end
 
 end
