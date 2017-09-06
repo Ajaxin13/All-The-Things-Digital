@@ -1,5 +1,4 @@
 require_relative '../specs/spec_helper'
-require_relative '../lib/test_object_rest_client'
 
 describe 'Log-In' do
   it 'fails to login with invalid credentials' do
